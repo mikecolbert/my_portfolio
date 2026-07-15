@@ -1,0 +1,564 @@
+/*!
+ * Portfolio Template - Updated for Bootstrap 5.3 and Single Page Mobile-First
+ *
+ * Sidebar nav focus border color (dark red): #8b0000
+ */
+
+/* ===========================================
+   CSS CUSTOM PROPERTIES
+   =========================================== */
+:root {
+  --primary-blue: #00558c;
+  --secondary-blue: #0074c2;
+  --text-dark: #343a40;
+  --text-light: #f5f5f5;
+  --sidebar-width: 17rem;
+}
+
+/* ===========================================
+   BASE STYLES
+   =========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Archivo", sans-serif;
+  padding-top: 54px;
+  color: var(--text-dark);
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    padding-left: var(--sidebar-width);
+  }
+}
+
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.subheading {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+}
+
+p {
+  font-family: "Archivo", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   =========================================== */
+.bg-primary {
+  background-color: var(--primary-blue) !important;
+}
+
+.text-primary {
+  color: var(--primary-blue) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-blue) !important;
+}
+
+.text-highlight {
+  background-color: var(--secondary-blue);
+  color: #ffffff;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+/* ===========================================
+   LINKS
+   =========================================== */
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--secondary-blue);
+}
+
+/* ===========================================
+   ACCESSIBILITY
+   =========================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+  color: #fff;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid var(--secondary-blue);
+  outline-offset: 2px;
+}
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+#sideNav {
+  background-color: var(--primary-blue) !important;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Source Code Pro", sans-serif;
+  color: var(--text-light);
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover {
+  color: #e6f3ff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:focus {
+  color: #e6f3ff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  outline: none;
+  border-top: 3px solid #8b0000;
+  border-bottom: 3px solid #8b0000;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  #sideNav .navbar-brand {
+    display: flex;
+    margin: auto auto 0;
+    padding: 0.5rem;
+  }
+
+  #sideNav .navbar-brand .img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  }
+
+  #sideNav .navbar-collapse {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 0;
+    width: 100%;
+    margin-bottom: auto;
+  }
+
+  #sideNav .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #sideNav .navbar-collapse .navbar-nav .nav-item {
+    display: block;
+  }
+
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    display: block;
+  }
+}
+
+/* ===========================================
+   SECTION NAVIGATION INDICATORS
+   =========================================== */
+.section-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .section-nav {
+    display: block;
+  }
+}
+
+.section-nav-item {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 85, 140, 0.3);
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.section-nav-item.active {
+  background: var(--primary-blue);
+  transform: scale(1.3);
+}
+
+/* ===========================================
+   PROGRESS BAR
+   =========================================== */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+}
+
+.progress-bar-scroll {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--secondary-blue)
+  );
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* ===========================================
+   SECTIONS
+   =========================================== */
+.main-section {
+  min-height: 100vh;
+  padding: 4rem 0;
+  position: relative;
+  scroll-margin-top: 2rem;
+}
+
+.section-divider {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--secondary-blue),
+    var(--primary-blue)
+  );
+  margin: 0;
+  border: none;
+}
+
+/* ===========================================
+   SOCIAL ICONS
+   =========================================== */
+.list-social-icons a {
+  color: #495057;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.list-social-icons a:hover,
+.list-social-icons a:focus {
+  color: var(--primary-blue);
+  transform: scale(1.1);
+}
+
+.list-social-icons a .fa-lg {
+  font-size: 1.75rem;
+}
+
+/* ===========================================
+   COURSE CARDS
+   =========================================== */
+.course-card {
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.course-card:hover {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.course-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* ===========================================
+   TIMELINE
+   =========================================== */
+.timeline-section {
+  background-color: #f8f9fa;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+/* Timeline vertical bar - MUST be lower z-index */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: var(--primary-blue);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  z-index: 1; /* Lower than circles */
+}
+
+/* Timeline containers - establish stacking context */
+.timeline-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  z-index: 2; /* Establish stacking context */
+}
+
+.timeline-container.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Timeline circles - MUST be higher z-index and positioned to overlap */
+.timeline-container::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #ffffff !important;
+  border: 4px solid var(--primary-blue) !important;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 999 !important; /* Much higher than timeline bar */
+  display: block !important; /* Force display */
+}
+
+/* Timeline positioning */
+.timeline-left {
+  left: 0;
+}
+
+.timeline-right {
+  left: 50%;
+}
+
+/* Left side circles - positioned to overlap timeline bar */
+.timeline-left::after {
+  right: -12.5px; /* Position to overlap the center line */
+}
+
+/* Right side circles - positioned to overlap timeline bar */
+.timeline-right::after {
+  left: -12.5px; /* Position to overlap the center line */
+}
+
+/* Timeline arrows - medium z-index */
+.timeline-left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 5; /* Between timeline and circles */
+  right: 30px;
+  border: medium solid var(--primary-blue);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent var(--primary-blue);
+}
+
+.timeline-right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 5; /* Between timeline and circles */
+  left: 30px;
+  border: medium solid var(--primary-blue);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--primary-blue) transparent transparent;
+}
+
+/* Timeline content - highest z-index */
+.timeline-content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border: 2px solid var(--primary-blue);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Highest for content */
+}
+
+.timeline-content h2,
+.timeline-content h3 {
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.timeline-content li {
+  margin-bottom: 10px;
+  font-family: "Archivo", sans-serif;
+  font-size: 1rem;
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  font-family: "Archivo", sans-serif;
+  font-size: 1rem;
+}
+
+/* ===========================================
+   BACK TO TOP BUTTON
+   =========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+  background: var(--secondary-blue);
+  transform: scale(1.1);
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+@media screen and (max-width: 991px) {
+  /* Timeline mobile adjustments */
+  .timeline::after {
+    left: 31px;
+    z-index: 1; /* Keep lower than circles */
+  }
+
+  .timeline-container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    z-index: 2; /* Maintain stacking context */
+  }
+
+  .timeline-container::before {
+    left: 60px;
+    border: medium solid var(--primary-blue);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--primary-blue) transparent transparent;
+    z-index: 5;
+  }
+
+  .timeline-container::after {
+    left: 15px !important;
+    right: auto !important;
+    z-index: 999 !important; /* Keep circles on top */
+  }
+
+  .timeline-left::after,
+  .timeline-right::after {
+    left: 15px !important;
+    right: auto !important;
+  }
+
+  .timeline-right {
+    left: 0%;
+  }
+
+  .course-card {
+    padding: 1.5rem;
+  }
+}
